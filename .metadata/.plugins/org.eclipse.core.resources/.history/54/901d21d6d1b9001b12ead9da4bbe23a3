@@ -1,0 +1,56 @@
+package org.bootcamp.mycash.service;
+
+import java.util.List;
+
+import javax.persistence.EntityNotFoundException;
+import javax.validation.Valid;
+
+import org.bootcamp.mycash.domain.Lancamento;
+import org.bootcamp.mycash.repository.LancamentoRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+@Service
+public class LancamentoService {
+
+	@Autowired
+	private LancamentoRepository repo;
+	
+	public List<Lancamento> todos() {		
+		return repo.findAll();
+	}
+	
+	public Lancamento apenasUm(Integer id) {
+		return repo.findById(id)
+				.orElseThrow(() -> new EntityNotFoundException());
+	}
+	
+	public Lancamento criar(Lancamento lancamento) {
+		return repo.save(lancamento);
+	}
+	
+	public Lancamento atualizar(
+			Integer id, 
+			Lancamento novoLancamento) {
+		return repo.findById(id).map(lancamento -> {
+			lancamento.setDescricao(novoLancamento.getDescricao());
+			lancamento.setValor(novoLancamento.getValor());
+			lancamento.setTipo(novoLancamento.getTipo());
+			lancamento.setData(novoLancamento.getData());
+			
+			return repo.save(lancamento);
+		})
+		.orElseThrow(() -> new EntityNotFoundException());
+	}
+	
+	public void excluir(Integer id) {
+		repo.deleteById(id);
+	}
+	
+}

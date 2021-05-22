@@ -1,0 +1,5 @@
+package org.bootcamp.mycash.web;
+
+public class CustomGlobalExceptionHandler {
+
+}

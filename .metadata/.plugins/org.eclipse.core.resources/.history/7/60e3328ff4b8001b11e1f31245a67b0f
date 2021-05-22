@@ -1,0 +1,5 @@
+package org.bootcamp.mycash.web.api;
+
+public class LancamentoController {
+
+}

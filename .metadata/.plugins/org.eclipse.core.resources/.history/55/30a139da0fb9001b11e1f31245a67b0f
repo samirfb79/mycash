@@ -1,0 +1,33 @@
+package org.bootcamp.mycash.web.api;
+
+import java.util.List;
+
+import javax.persistence.EntityNotFoundException;
+
+import org.bootcamp.mycash.domain.Lancamento;
+import org.bootcamp.mycash.repository.LancamentoRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+@RequestMapping("/api/lancamento")
+public class LancamentoController {
+	
+	@Autowired
+	private LancamentoRepository repo;
+	
+	@GetMapping
+	public List<Lancamento> todos() {		
+		return repo.findAll();
+	}
+	
+	@GetMapping("/{id}")
+	public Lancamento apenasUm(@PathVariable("id") Integer id) {
+		return repo.findById(id)
+				.orElseThrow(() -> new EntityNotFoundException());
+	}
+	
+}

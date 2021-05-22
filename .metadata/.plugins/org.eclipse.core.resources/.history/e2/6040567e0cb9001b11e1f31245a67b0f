@@ -1,0 +1,5 @@
+package org.bootcamp.mycash.repository;
+
+public interface LancamentoRepository {
+
+}

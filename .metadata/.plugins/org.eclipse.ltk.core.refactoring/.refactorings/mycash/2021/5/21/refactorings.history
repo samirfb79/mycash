@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete element from project &apos;mycash&apos;&#x0A;- Original project: &apos;mycash&apos;&#x0A;- Original element: &apos;org.bootcamp.mycash.web.api.BaseController.java&apos;" description="Delete element" element1="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;org.bootcamp.mycash.web.api{BaseController.java" elements="1" flags="589830" id="org.eclipse.jdt.ui.delete" resources="0" stamp="1621471640391" subPackages="false" version="1.0"/>
+</session>

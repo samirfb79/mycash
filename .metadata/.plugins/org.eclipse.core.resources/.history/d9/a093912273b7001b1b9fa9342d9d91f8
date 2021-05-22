@@ -1,0 +1,11 @@
+package org.bootcamp.mycash.domain;
+
+import java.time.LocalDate;
+
+public class Lancamento {
+
+	private String descricao;
+	private Double valor;
+	private LocalDate data;
+	private LancamentoTipo tipo;
+}

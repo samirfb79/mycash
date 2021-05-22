@@ -1,0 +1,43 @@
+package org.bootcamp.mycash.web.dto.error;
+
+import java.time.LocalDateTime;
+
+import org.springframework.http.HttpStatus;
+
+public class ApiError {
+
+	private HttpStatus status;
+	private LocalDateTime dataHora;
+	private String mensagem;
+	
+	public ApiError(HttpStatus status) {
+		this.status = status;
+		this.dataHora = LocalDateTime.now();
+	}
+
+	public HttpStatus getStatus() {
+		return status;
+	}
+	
+	public void setStatus(HttpStatus status) {
+		this.status = status;
+	}
+	
+	public LocalDateTime getDataHora() {
+		return dataHora;
+	}
+	
+	public void setDataHora(LocalDateTime dataHora) {
+		this.dataHora = dataHora;
+	}
+	
+	public String getMensagem() {
+		return mensagem;
+	}
+	
+	public void setMensagem(String mensagem) {
+		this.mensagem = mensagem;
+	}
+	
+	
+}
