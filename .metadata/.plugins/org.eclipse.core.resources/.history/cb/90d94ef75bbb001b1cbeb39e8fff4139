@@ -1,0 +1,5 @@
+package org.bootcamp.mycash.service;
+
+public class UsuarioService {
+
+}
